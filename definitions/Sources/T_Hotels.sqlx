@@ -1,6 +1,6 @@
 config {
-  type: "declaration",
-  database: "DATABASE",
-  schema: "SCHEMA",
-  name: "NAME",
+    type: "declaration",
+    database: "platinum-lead-427306-p2",
+    schema: "Hotels",
+    name: "Hotel_Data",
 }
