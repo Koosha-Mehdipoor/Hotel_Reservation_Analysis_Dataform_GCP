@@ -1,0 +1,5 @@
+defaultProject: platinum-lead-427306-p2
+defaultLocation: US
+defaultDataset: dataform
+defaultAssertionDataset: dataform_assertions
+dataformCoreVersion: 3.0.0
