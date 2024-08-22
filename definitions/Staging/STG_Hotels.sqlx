@@ -1,0 +1,42 @@
+config {
+    type: "table",
+    database: "platinum-lead-427306-p2",
+    schema: "STG_Hotels",
+    name: "STG_Hotel_Data",
+}
+
+WITH
+  Month_Number_Creator AS(
+  SELECT
+    *,
+    CASE
+      WHEN arrival_date_month = "January" THEN 01
+      WHEN arrival_date_month = "February" THEN 02
+      WHEN arrival_date_month = "March" THEN 03
+      WHEN arrival_date_month = "April" THEN 04
+      WHEN arrival_date_month = "May" THEN 05
+      WHEN arrival_date_month = "June" THEN 06
+      WHEN arrival_date_month = "July" THEN 07
+      WHEN arrival_date_month = "August" THEN 08
+      WHEN arrival_date_month = "September" THEN 09
+      WHEN arrival_date_month = "October" THEN 10
+      WHEN arrival_date_month = "November" THEN 11
+      WHEN arrival_date_month = "December" THEN 12
+      ELSE 01
+  END
+    AS Month_Number
+  FROM
+    `platinum-lead-427306-p2.Hotels.Hotel_Data`
+  WHERE
+    arrival_date_month != "arrival_date_month" ),
+  Date_Column AS(
+  SELECT
+    *,
+    CAST(arrival_date_year||"-"||Month_Number||"-"||arrival_date_day_of_month AS DATE) AS Arrival_Date,
+  FROM
+    Month_Number_Creator )
+SELECT
+  *,
+  DATE_SUB(Arrival_Date, INTERVAL CAST(lead_time AS INT64) DAY) AS Reservation_Date
+FROM
+  Date_Column
