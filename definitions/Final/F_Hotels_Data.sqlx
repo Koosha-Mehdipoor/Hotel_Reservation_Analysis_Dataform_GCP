@@ -1,0 +1,17 @@
+config {
+    type: "table",
+    database: "platinum-lead-427306-p2",
+    description: "This table shows the data of two hotels in three years from 2015 to 2019",
+    columns: {
+    hotel: "Name of the hotel",
+    is_canceled: "Flag to show if the reservation is canceled or not",
+    lead_time: "Number of days from reservation to arrival to the hotel",
+    Arrival_Date: "The date in which the customer arrived and checked in",
+    Reservation_Date : "The date in which the reservation is done"
+    },
+    schema: "Final_Hotels_Data",
+    name: "F_Hotel_Data",
+}
+
+SELECT * 
+FROM ${ref("STG_Hotel_Data")}
