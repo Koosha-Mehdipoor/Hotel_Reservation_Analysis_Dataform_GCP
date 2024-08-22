@@ -1,5 +1,5 @@
 config {
-    type: "table",
+    type: "incremental",
     database: "platinum-lead-427306-p2",
     schema: "STG_Hotels",
     name: "STG_Hotel_Data",
@@ -26,7 +26,7 @@ WITH
   END
     AS Month_Number
   FROM
-    `platinum-lead-427306-p2.Hotels.Hotel_Data`
+    ${ref("V_Hotel_Data")}
   WHERE
     arrival_date_month != "arrival_date_month" ),
   Date_Column AS(
