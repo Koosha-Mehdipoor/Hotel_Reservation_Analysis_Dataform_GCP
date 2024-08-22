@@ -1,6 +1,8 @@
 config {
   type: "view",
-
+  database: "platinum-lead-427306-p2",
+  schema: "STG_Hotels",
+  name: "V_Hotel_Data",
 }
 
 SELECT *,
